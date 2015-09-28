@@ -1,0 +1,82 @@
+<body>
+<script src="jquery-1.11.3.js"></script>
+<script src="jquery.easing.1.3.js"></script>
+<script src="ezslots.js"></script>
+<link href="ezslots.css" rel="stylesheet" type="text/css" />
+
+<style>
+body{
+background-color:white;
+padding:0px;
+margin:0px;
+}
+#ezslots0 .window {
+	font-size:40px;
+	font-family:arial,helvetica,sans-serif;	
+	border:1px solid black;
+	margin-top:40px;
+}
+#ezslots1 .window {
+	font-size:40px;
+	font-family:arial,helvetica,sans-serif;	
+	border:1px solid black;
+	margin-top:40px;
+}
+#ezslots2 .window {
+	font-size:40px;
+	font-family:arial,helvetica,sans-serif;	
+	border:1px solid black;
+	margin-top:40px;
+}
+#ezslots3 .window {
+	font-size:40px;
+	font-family:arial,helvetica,sans-serif;	
+	border:1px solid black;
+	margin-top:40px;
+}
+
+</style>
+<div id="ezslots0"></div>
+<button id="gogogo0">spin</button>
+
+
+<div id="ezslots1"></div>
+<button id="gogogo1">spin</button>
+<button id="winwinwin1">win</button>
+<div id="ezslots2"></div>
+<button id="gogogo2">spin</button>
+<button id="winwinwin2">win</button>
+<div id="ezslots3"></div>
+<button id="gogogo3">spin</button>
+<button id="winwinwin3">win</button>
+
+<script>
+
+$(function(){
+	//setting up some sample set sof things we can make a slot machine of
+	var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+	var images = ['<img src="images/seven.png">','<img src="images/banana.png">','<img src="images/cherries.png">','<img src="images/lemon.png">','<img src="images/orange.png">','<img src="images/plum.png">','<img src="images/watermelon.png">'];
+	var misc = ['!','K','*','#','@','$'];
+
+	//all parameters except id are optional
+	var ezslot0 = new EZSlots("ezslots0");
+	//simple numbers based one
+	var ezslot1 = new EZSlots("ezslots1",{"reelCount":3,"winningSet":[7,7,7],"symbols":numbers,"height":126,"width":126});
+	//using images instead, and more reels
+	var ezslot2 = new EZSlots("ezslots2",{"reelCount":4,"winningSet":[0,0,0,0],"symbols":images,"height":126,"width":126});
+	//mixed types for each reel
+	var ezslot3 = new EZSlots("ezslots3",{"reelCount":3,"winningSet":[0,0,0],"symbols":[numbers,images,misc],"height":126,"width":126});
+
+	$("#gogogo0").click(function(){ console.log(ezslot0.spin());});
+
+	$("#gogogo1").click(function(){ console.log(ezslot1.spin());});
+	$("#winwinwin1").click(function(){ console.log(ezslot1.win())});
+	$("#gogogo2").click(function(){ console.log(ezslot2.spin());});
+	$("#winwinwin2").click(function(){ console.log(ezslot2.win())});
+	$("#gogogo3").click(function(){ console.log(ezslot3.spin());});
+	$("#winwinwin3").click(function(){ console.log(ezslot3.win())});
+});
+
+</script>
+
+</body>

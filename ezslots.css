@@ -1,0 +1,15 @@
+.ezslots>.window{	
+	overflow:hidden;
+	display:inline-block;
+}
+.ezslots>.window>.slider>.symbol{
+	text-align:center;
+	display:table;	
+}
+.ezslots>.window>.slider>.symbol>.content{
+      padding:0px;
+      margin:0px;
+      display:table-cell;
+      text-align:center;
+      vertical-align:middle;
+}
