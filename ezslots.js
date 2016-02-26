@@ -5,6 +5,7 @@ function EZSlots(id,useroptions){
 	this.reelCount = options.reelCount ? options.reelCount : 3; //how many reels, assume 3 
 	this.symbols = options.symbols ? options.symbols : ['A','B','C'];
 	this.sameSymbolsEachSlot = true;
+	this.startingSet = options.startingSet;
 	this.winningSet = options.winningSet;
 	this.width = options.width ? options.width : 100;
 	this.height = options.width ? options.height : 100;
@@ -30,7 +31,7 @@ function EZSlots(id,useroptions){
 			this.scaleJqo(jqoWindow).append(jqoSlider); //make window right size and put slider in it
 			this.jqo.append(jqoWindow); //add window to main div
 			this.jqoSliders.push(jqoSlider); //keep reference to jqo of slider
-			this.addSymbolsToStrip(jqoSlider,i); //and add the initial set 
+			this.addSymbolsToStrip(jqoSlider,i, false, true); //and add the initial set 
 		}
 	};
 	//convenience function since we need to apply width and height to multiple parts
@@ -39,11 +40,14 @@ function EZSlots(id,useroptions){
 		return jqo;
 	}
 	//add the various symbols - but take care to possibly add the "winner" as the symbol chosen
-	this.addSymbolsToStrip = function(jqoSlider, whichReel, shouldWin){
+	this.addSymbolsToStrip = function(jqoSlider, whichReel, shouldWin, isInitialCall){
 		var symbolsToUse = that.sameSymbolsEachSlot ? that.symbols : that.symbols[whichReel];
 		var chosen =  shouldWin ? that.winningSet[whichReel] : Math.floor(Math.random()*symbolsToUse.length);
 		for(var i = 0; i < that.howManySymbolsToAppend; i++){
 			var ctr = (i == that.endingLocation) ? chosen : Math.floor(Math.random()*symbolsToUse.length);
+			if(i == 0 && isInitialCall && that.startingSet){
+				ctr = that.startingSet[whichReel];
+			}
 			//we nest "content" inside of "symbol" so we can do vertical and horizontal centering more easily
 			var jqoContent = $("<div class='content'>"+symbolsToUse[ctr]+"</div>");
 			that.scaleJqo(jqoContent);

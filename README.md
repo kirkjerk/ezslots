@@ -27,6 +27,7 @@ The second argument is a map with the following keys:
  - reelCount - how many reels/windows to display (default:3)
  - symbols - an array containing html strings (or an array of arrays if you want different symbol sets for each reel) (default:['A','B','C']
  - winningSet - an optional array specifying the offset of a "winning" spin. (For example, if the first entry in the symbols array was the "winner", this should be [0,0,0]) (default: none. If you want to call .win() this should be explicitly set)
+ - startingSet - an optional array specifying the offset when the slots first appear. (default:none, so just random entries)
  - width - width of each slot window in pixels (default: 100)
  - height - height of each slot window in pixels (default: 100)
 
@@ -56,4 +57,4 @@ Also, each reel window is given the class "window_#" where # is its position in 
 
 For the animation effect, 20 symbols are added to each window (randomly selected from the array of options for that reel, except possibly for the "winning" result that actually shows up in the window when things come to rest) and an "easeOutElastic" easing gives the illusion of a rotating reel that then settles into place.
 
-With a regular or guaranteed win, the results are return an array of offsets into the array of "possibilities.") There's currently no function provided for translating these offsets into the html strings being displayed, but it would be trivial to write if needed.
+With a regular or guaranteed win, the results are return an array of offsets into the array of "possibilities." There's currently no function provided for translating these offsets into the html strings being displayed, but it would be trivial to write if needed.
