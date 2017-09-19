@@ -30,10 +30,11 @@ The second argument is a map with the following keys:
  - startingSet - an optional array specifying the offset when the slots first appear. (default:none, so just random entries)
  - width - width of each slot window in pixels (default: 100)
  - height - height of each slot window in pixels (default: 100)
+ - callback - optional function to be called upon completion of animation (approximately). Will be passed the results.
 
 Samples
 -------
-There is a [sample page](http://kirkdev.alienbill.com/ezslots/sample.html) where you can see the "all defaults version", one with simple text numbers, one with images, and one that uses mixed type.
+There is a [sample page](http://kirkdev.alienbill.com/ezslots/sample.html) where you can see the "all defaults version", one with simple text numbers, one with images, and one that uses mixed type. The mixed type example uses a callback function to show a JSON stringified version of the results.
 
 Understanding the Code
 ----------------------

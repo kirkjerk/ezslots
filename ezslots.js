@@ -14,6 +14,7 @@ function EZSlots(id,useroptions){
 	this.time = 6500; //time in millis for a spin to take
 	this.jqo = $("#"+id); //jquery object reference to main wrapper
 	this.jqoSliders = []; //jquery object reference to strips sliding up and down
+	this.callback = options.callback; //callback function to be called once slots animation is finished
 
 	//to initialize we construct the correct number of slot windows
 	//and then populate each strip once
@@ -74,6 +75,13 @@ function EZSlots(id,useroptions){
 		for(var i = 0; i < that.reelCount; i++){
 				results.push(that.spinOne(that.jqoSliders[i],i,shouldWin));
 			}
+
+		if(that.callback) {
+			setTimeout(function(){ 
+					that.callback(results); 
+				}, that.time);
+		}
+
 		return results;
 	}
 
