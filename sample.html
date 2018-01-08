@@ -6,49 +6,39 @@
 
 <style>
 body{
-background-color:white;
-padding:0px;
-margin:0px;
+	background-color:white;
 }
-#ezslots0 .window {
+.window {
 	font-size:40px;
 	font-family:arial,helvetica,sans-serif;	
 	border:1px solid black;
-	margin-top:40px;
-}
-#ezslots1 .window {
-	font-size:40px;
-	font-family:arial,helvetica,sans-serif;	
-	border:1px solid black;
-	margin-top:40px;
-}
-#ezslots2 .window {
-	font-size:40px;
-	font-family:arial,helvetica,sans-serif;	
-	border:1px solid black;
-	margin-top:40px;
-}
-#ezslots3 .window {
-	font-size:40px;
-	font-family:arial,helvetica,sans-serif;	
-	border:1px solid black;
-	margin-top:40px;
 }
 
 </style>
+<h1>all defaults</h1>
 <div id="ezslots0"></div>
 <button id="gogogo0">spin</button>
 
-
+<h1>simple numbers with winning set</h1>
 <div id="ezslots1"></div>
 <button id="gogogo1">spin</button>
 <button id="winwinwin1">win</button>
+
+<h1>simple numbers but longer spin</h1>
+<div id="ezslots4"></div>
+<button id="gogogo4">spin</button>
+<button id="winwinwin4">win</button>
+
+<h1>images and more reels</h1>
 <div id="ezslots2"></div>
 <button id="gogogo2">spin</button>
 <button id="winwinwin2">win</button>
+
+<h1>mixed reel types</h1>
 <div id="ezslots3"></div>
 <button id="gogogo3">spin</button>
 <button id="winwinwin3">win</button>
+
 
 <script>
 
@@ -70,15 +60,19 @@ $(function(){
 	var ezslot2 = new EZSlots("ezslots2",{"reelCount":4,"winningSet":[0,0,0,0],"symbols":images,"height":126,"width":126});
 	//mixed types for each reel
 	var ezslot3 = new EZSlots("ezslots3",{"reelCount":3,"winningSet":[0,0,0],"symbols":[numbers,images,misc],"height":126,"width":126, "callback":callbackFunction});
+	//simple numbers based one but takes longer to settle
+	var ezslot4 = new EZSlots("ezslots4",{"time":20,"reelCount":3,"startingSet":[0,0,0],"winningSet":[7,7,7],"symbols":numbers,"height":126,"width":126});
+
 
 	$("#gogogo0").click(function(){ console.log(ezslot0.spin());});
-
 	$("#gogogo1").click(function(){ console.log(ezslot1.spin());});
 	$("#winwinwin1").click(function(){ console.log(ezslot1.win())});
 	$("#gogogo2").click(function(){ console.log(ezslot2.spin());});
 	$("#winwinwin2").click(function(){ console.log(ezslot2.win())});
 	$("#gogogo3").click(function(){ console.log(ezslot3.spin());});
 	$("#winwinwin3").click(function(){ console.log(ezslot3.win())});
+	$("#gogogo4").click(function(){ console.log(ezslot4.spin());});
+	$("#winwinwin4").click(function(){ console.log(ezslot4.win())});
 });
 
 </script>

@@ -9,9 +9,9 @@ function EZSlots(id,useroptions){
 	this.winningSet = options.winningSet;
 	this.width = options.width ? options.width : 100;
 	this.height = options.width ? options.height : 100;
-	this.howManySymbolsToAppend = 20; //how many symbols each spin adds
+	this.time = options.time ? (options.time * 1000) : 6500; //time in millis for a spin to take	
+	this.howManySymbolsToAppend = Math.round(this.time/325); //how many symbols each spin adds
 	this.endingLocation = 7; //location for selected symbol... needs to be a few smaller than howManySymbolsToAppend
-	this.time = 6500; //time in millis for a spin to take
 	this.jqo = $("#"+id); //jquery object reference to main wrapper
 	this.jqoSliders = []; //jquery object reference to strips sliding up and down
 	this.callback = options.callback; //callback function to be called once slots animation is finished
